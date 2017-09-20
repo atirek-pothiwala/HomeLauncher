@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/size5"
+    android:background="@drawable/corner_rect_black_trans"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@android:drawable/ic_menu_search"
+            android:drawablePadding="@dimen/size10"
+            android:drawableTint="@android:color/white"
+            android:hint="@string/search"
+            android:padding="@dimen/size10"
+            android:textColor="@android:color/white"
+            android:textColorHighlight="@color/whiteTranslucent"
+            android:textColorHint="@color/whiteTranslucent"
+            android:textSize="@dimen/size18" />
+
+        <ImageView
+            android:id="@+id/ivSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:layout_margin="@dimen/size10"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_menu_manage"
+            android:tint="@android:color/white" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size1"
+        android:background="@color/whiteTranslucent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/cell_app" />
+
+</LinearLayout>

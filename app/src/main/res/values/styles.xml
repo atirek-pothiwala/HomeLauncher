@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+    <style name="AppTheme.Wallpaper" parent="android:Theme.Wallpaper.NoTitleBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
+    </style>
+
+
+</resources>

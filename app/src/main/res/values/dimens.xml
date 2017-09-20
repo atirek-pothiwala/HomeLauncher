@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size30">30dp</dimen>
+    <dimen name="size25">25dp</dimen>
+    <dimen name="size20">20dp</dimen>
+    <dimen name="size18">18dp</dimen>
+    <dimen name="size15">15dp</dimen>
+    <dimen name="size12">12dp</dimen>
+    <dimen name="size10">10dp</dimen>
+    <dimen name="size8">8dp</dimen>
+    <dimen name="size5">5dp</dimen>
+    <dimen name="size2">2dp</dimen>
+    <dimen name="size1">1dp</dimen>
+</resources>
