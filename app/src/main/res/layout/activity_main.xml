@@ -5,8 +5,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/size5"
-    android:background="@drawable/corner_rect_black_trans"
+    android:background="@color/blackTranslucent"
     android:orientation="vertical">
 
     <LinearLayout

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/groupSetting">
+        <item
+            android:id="@+id/item1"
+            android:orderInCategory="0"
+            android:title="List View" />
+        <item
+            android:id="@+id/item2"
+            android:orderInCategory="1"
+            android:title="Grid View (2x2)" />
+
+        <item
+            android:id="@+id/item3"
+            android:orderInCategory="2"
+            android:title="Grid View (3x3)" />
+
+        <item
+            android:id="@+id/item4"
+            android:orderInCategory="3"
+            android:title="Grid View (4x4)" />
+
+    </group>
+</menu>

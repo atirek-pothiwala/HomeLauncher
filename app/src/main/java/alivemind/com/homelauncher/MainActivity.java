@@ -1,6 +1,7 @@
 package alivemind.com.homelauncher;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -8,14 +9,17 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -49,14 +53,7 @@ public class MainActivity extends Activity {
 
         initSearch();
         initList();
-
-        ivSettings = (ImageView) findViewById(R.id.ivSettings);
-        ivSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeViewType();
-            }
-        });
+        initSettings();
 
     }
 
@@ -144,22 +141,39 @@ public class MainActivity extends Activity {
         rvList.setAdapter(adapter);
     }
 
-    void changeViewType() {
-        if (viewType == 0) {
-            viewType = 1;
-            rvList.setLayoutManager(new GridLayoutManager(MainActivity.this, 2, LinearLayoutManager.VERTICAL, false));
-        } else if (viewType == 1) {
-            viewType = 2;
-            rvList.setLayoutManager(new GridLayoutManager(MainActivity.this, 3, LinearLayoutManager.VERTICAL, false));
-        } else if (viewType == 2) {
-            viewType = 3;
-            rvList.setLayoutManager(new GridLayoutManager(MainActivity.this, 4, LinearLayoutManager.VERTICAL, false));
-        } else {
-            viewType = 0;
-            rvList.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false));
-        }
+    void initSettings() {
 
-        adapter.notifyDataSetChanged();
+        ivSettings = (ImageView) findViewById(R.id.ivSettings);
+        ivSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context wrapper = new ContextThemeWrapper(MainActivity.this, R.style.MyPopupMenu);
+                PopupMenu popupMenu = new PopupMenu(wrapper, v);
+                popupMenu.inflate(R.menu.menu_settings);
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+
+                        viewType = item.getOrder();
+                        if (viewType == 0) {
+                            rvList.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false));
+                        } else if (viewType == 1) {
+                            rvList.setLayoutManager(new GridLayoutManager(MainActivity.this, 2, LinearLayoutManager.VERTICAL, false));
+                        } else if (viewType == 2) {
+                            rvList.setLayoutManager(new GridLayoutManager(MainActivity.this, 3, LinearLayoutManager.VERTICAL, false));
+                        } else if (viewType == 3) {
+                            rvList.setLayoutManager(new GridLayoutManager(MainActivity.this, 4, LinearLayoutManager.VERTICAL, false));
+                        }
+
+                        adapter.notifyDataSetChanged();
+                        return true;
+                    }
+                });
+                popupMenu.show();
+
+            }
+        });
+
     }
 
     @Override
